@@ -159,6 +159,7 @@ body {
 
 .list__shopping {
     display: none;
+    padding: 0;
 }
 
 .list__shoppingItem {
