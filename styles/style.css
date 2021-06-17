@@ -162,7 +162,19 @@ body {
     padding: 0;
 }
 
+.list__delete {
+    display: none;
+    padding: 0;
+}
+
 .list__shoppingItem {
+    height: 70px;
+    display: flex;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.list__deleteItem {
     height: 70px;
     display: flex;
     padding: 0 20px;
