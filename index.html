@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Basket</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="links">
+            <a class="links__item" data-name="shoppingList" href="#">shopping</a>
+            <a class="links__item" data-name="doneList" href="#">done</a>
+            <a class="links__item" data-name="deleteList" href="#">delete</a>
+        </div>
+        <div class="container">
+            <div class="header">
+                    <div class="header__title">
+                        <span class="header__text">shopping list</span>
+                    </div>
+                    <div class="header__input">
+                        <input class="header__product" type="text" placeholder="Name product">
+                        <input class="header__quantity" type="number" placeholder="Quantity">
+                        <input class="header__price" type="number" placeholder="Price">
+                        <button class="header__button">Update</button>
+                    </div>
+            </div>
+            <div class="list">
+                <div class="list__title title">
+                    <span class="title__item">№</span>
+                    <span class="title__item">item</span>
+                    <span class="title__item">quantity</span>
+                    <span class="title__item">price</span>
+                    <span class="title__item">action</span>
+                </div>
+                <div class="list__items">
+                    <ul class="list__shopping dOn" data-name="shoppingList"></ul>
+                    <div class="list__done" data-name="doneList"></div>
+                    <div class="list__delete" data-name="deleteList"></div>
+                </div>
+                <div class="list__footer">
+                    <span class="list__total">Total:</span>
+                    <span class="list__totalPrice">1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

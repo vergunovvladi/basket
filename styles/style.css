@@ -1,0 +1,288 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    max-width: 1140px;
+    width: 100%;
+    margin: 20px auto 0 auto;
+    display: flex;
+}
+
+.links {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.links__item {
+    text-decoration: none;
+    color: #007bff;
+    height: 30px;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: .3s;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    font-weight: 300;
+    font-size:  16px;
+    box-sizing: border-box;
+}
+
+.links__item:last-child {
+    margin-bottom: 0;
+}
+
+.links__item:hover {
+    background: #007bff;
+    border-radius: 5px;
+    color: white;
+}
+
+.container {
+    width: 70%;
+}
+
+.header {
+    background: #e9ecef;
+    padding: 50px 20px 70px 20px;
+    box-sizing: border-box;
+}
+
+.header__title {
+    position: relative;
+}
+
+.header__text {
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 38px;
+}
+
+.header__text::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    display: block;
+    top: 80px;
+    background: #dbdee1;
+}
+
+.header__input {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.header__product {
+    height: 30px;
+    width: 40%;
+    border-radius: 5px;
+    border: 1px solid #dbdee1;
+    font-size: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.header__quantity {
+    height: 30px;
+    width: 15%;
+    border-radius: 5px;
+    border: 1px solid #dbdee1;
+    font-size: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.header__price {
+    height: 30px;
+    width: 15%;
+    border-radius: 5px;
+    border: 1px solid #dbdee1;
+    font-size: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.header__button {
+    width: 15%;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #dbdee1;
+    font-size: 16px;
+    color: #757575;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.header__button:hover {
+    background: #17a2b8;
+    border: 1px solid #17a2b8;
+    color: white;
+}
+
+.list {
+    margin-top: 30px;
+}
+
+.list__title {
+    width: 100%;
+    display: flex;
+    background: #212529;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 50px;
+}
+
+.title__item {
+    display: flex;
+    align-items: center;
+    width: 17%;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.title__item:nth-child(2) {
+    width: 32%;
+}
+
+.title__item:last-child {
+    justify-content: center;
+}
+
+.list__shopping {
+    display: none;
+}
+
+.list__shoppingItem {
+    height: 70px;
+    display: flex;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.dOn {
+    display: block;
+}
+
+.list__number {
+    display: flex;
+    align-items: center;
+    width: 17%;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.list__name {
+    display: flex;
+    align-items: center;
+    width: 32%;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.list__quantity {
+    display: flex;
+    align-items: center;
+    width: 17%;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.list__price {
+    display: flex;
+    align-items: center;
+    width: 17%;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.list__button {
+    width: 17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list__doneButton {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    color: black;
+    font-weight: 700;
+    border: 1px solid green;
+    border-radius: 2px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.list__doneButton:hover {
+    color: white;
+    background: green;
+}
+
+.list__editButton {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    color: black;
+    font-weight: 700;
+    border: 1px solid orange;
+    border-radius: 2px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.list__editButton:hover {
+    color: white;
+    background: orange;
+}
+
+.list__deleteButton {
+    height: 30px;
+    width: 30px;
+    color: black;
+    font-weight: 700;
+    border: 1px solid red;
+    border-radius: 2px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.list__deleteButton:hover {
+    color: white;
+    background: red;
+}
+
+.list__footer {
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    background: #dadada;
+    height: 50px;
+    align-items: center;
+}
+
+.list__total {
+    width: 17%;
+    font-size: 16px;
+}
+
+.list__totalPrice {
+    width: 17%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 16px;
+}
