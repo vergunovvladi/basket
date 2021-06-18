@@ -167,6 +167,9 @@ shoppingList.addEventListener('click', (event) => {
               indexProduct = parseInt(editTarget.querySelector('.list__number').innerHTML);
         editTarget.style.background = '#abdde5';
         shoppingList.classList.add('edit');
+        headerButton.addEventListener('click', (event) => {
+            editProduct(indexProduct);
+        });
     }
 });
 
@@ -182,14 +185,12 @@ links.addEventListener('click', (event) => {
 });
 
 headerButton.addEventListener('click', () => {
-    if(shoppingList.classList.contains('edit')) {
-        editProduct();
+    if(!shoppingList.classList.contains('edit')) {
+        addToProductLocal();
+        showShoppingList();
+        showDeleteList();
+        clearInput();
     }
-    // addToProductLocal();
-    // showShoppingList();
-    // showDeleteList();
-    // clearInput();
-    console.log(shoppingList.classList.contains('edit'));
 });
 
 listDelete.addEventListener('click', (event) => {
