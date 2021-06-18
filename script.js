@@ -135,11 +135,10 @@ const editProduct = function(index) {
         quantity: inputQuantity.value,
         price: inputPrice.value
     }
-    returnLocal = JSON.parse(localStorage.getItem('products'));
-    returnLocal.splice(index - 1, 1, editObj);
-    localStorage.setItem('products', JSON.stringify(returnLocal));
+    const editReturnLocal = JSON.parse(localStorage.getItem('products'));
+    const blabla = editReturnLocal.splice(index - 1, 1, editObj);
+    localStorage.setItem('products', JSON.stringify(editReturnLocal));
     shoppingList.classList.remove('edit');
-    showShoppingList();
 }
 
 showShoppingList();
