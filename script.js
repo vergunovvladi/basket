@@ -139,6 +139,8 @@ const editProduct = function(index) {
     const blabla = editReturnLocal.splice(index - 1, 1, editObj);
     localStorage.setItem('products', JSON.stringify(editReturnLocal));
     shoppingList.classList.remove('edit');
+    clearInput();
+    showShoppingList();
 }
 
 showShoppingList();
@@ -165,7 +167,7 @@ shoppingList.addEventListener('click', (event) => {
         const editTarget = event.target.closest('li'),
               indexProduct = parseInt(editTarget.querySelector('.list__number').innerHTML);
         editTarget.style.background = '#abdde5';
-        shoppingList.classList.add('edit');
+        event.target.closest('.list__shoppingItem').classList.add('edit');
         headerButton.addEventListener('click', (event) => {
             editProduct(indexProduct);
         });
@@ -183,8 +185,8 @@ links.addEventListener('click', (event) => {
     }
 });
 
-headerButton.addEventListener('click', () => {
-    if(!shoppingList.classList.contains('edit')) {
+headerButton.addEventListener('click', (event) => {
+    if(!event.target.closest('.list__shoppingItem').classList.contains('edit')) {
         addToProductLocal();
         showShoppingList();
         showDeleteList();
@@ -211,5 +213,3 @@ listDone.addEventListener('click', (event) => {
     }
     showDoneList();
 });
-
-// todo list edit
