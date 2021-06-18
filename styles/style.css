@@ -167,6 +167,11 @@ body {
     padding: 0;
 }
 
+.list__done {
+    display: none;
+    padding: 0;
+}
+
 .list__shoppingItem {
     height: 70px;
     display: flex;
@@ -175,6 +180,13 @@ body {
 }
 
 .list__deleteItem {
+    height: 70px;
+    display: flex;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.list__doneItem {
     height: 70px;
     display: flex;
     padding: 0 20px;
@@ -226,6 +238,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.deleteRight  {
+    justify-content: flex-end;
 }
 
 .list__doneButton {
