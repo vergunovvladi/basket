@@ -175,15 +175,15 @@ shoppingList.addEventListener('click', (event) => {
         showDoneList();
     }
     if(event.target.className == 'list__editButton') {
-        const editTarget = event.target.closest('li'),
-            indexProduct = parseInt(editTarget.querySelector('.list__number').innerHTML);
-        if(findEditClass()) {
-            event.target.closest('.list__shoppingItem').classList.add('edit');
-            editTarget.style.background = '#abdde5';
-        }
-        headerButton.addEventListener('click', (event) => {
-            editProduct(indexProduct);
-        });
+        // const editTarget = event.target.closest('li'),
+        //     indexProduct = parseInt(editTarget.querySelector('.list__number').innerHTML);
+        // if(findEditClass()) {
+        //     event.target.closest('.list__shoppingItem').classList.add('edit');
+        //     editTarget.style.background = '#abdde5';
+        // }
+        // headerButton.addEventListener('click', (event) => {
+        //     editProduct(indexProduct);
+        // });
     }
 });
 
@@ -199,19 +199,17 @@ links.addEventListener('click', (event) => {
 });
 
 headerButton.addEventListener('click', (event) => {
-    if(editProduct()) {    
         addToProductLocal();
         showShoppingList();
         showDeleteList();
         clearInput();
-    }
 });
 
 listDelete.addEventListener('click', (event) => {
     if(event.target.className == 'list__deleteButton') {
         const returnLocal = JSON.parse(localStorage.getItem('deleteProducts'));
-              index = event.target.closest('li').querySelector('.list__number').innerHTML;
-        returnLocal.splice(index - 1);
+              indexDelete = event.target.closest('li').querySelector('.list__number').innerHTML;
+        returnLocal.splice(indexDelete - 1, 1);
         localStorage.setItem('deleteProducts', JSON.stringify(returnLocal));
     }
     showDeleteList();
