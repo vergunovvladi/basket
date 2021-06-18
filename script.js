@@ -143,6 +143,17 @@ const editProduct = function(index) {
     showShoppingList();
 }
 
+const findEditClass = function() {
+    const listShoppingItems = shoppingList.querySelectorAll('.list__shoppingItem');
+    for(let i = 0; i < listShoppingItems.length; i++) {
+        if(listShoppingItems[i].classList.contains('edit')) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
 showShoppingList();
 showDeleteList();
 showDoneList();
@@ -165,9 +176,11 @@ shoppingList.addEventListener('click', (event) => {
     }
     if(event.target.className == 'list__editButton') {
         const editTarget = event.target.closest('li'),
-              indexProduct = parseInt(editTarget.querySelector('.list__number').innerHTML);
-        editTarget.style.background = '#abdde5';
-        event.target.closest('.list__shoppingItem').classList.add('edit');
+            indexProduct = parseInt(editTarget.querySelector('.list__number').innerHTML);
+        if(findEditClass()) {
+            event.target.closest('.list__shoppingItem').classList.add('edit');
+            editTarget.style.background = '#abdde5';
+        }
         headerButton.addEventListener('click', (event) => {
             editProduct(indexProduct);
         });
@@ -186,7 +199,7 @@ links.addEventListener('click', (event) => {
 });
 
 headerButton.addEventListener('click', (event) => {
-    if(!event.target.closest('.list__shoppingItem').classList.contains('edit')) {
+    if(editProduct()) {    
         addToProductLocal();
         showShoppingList();
         showDeleteList();
