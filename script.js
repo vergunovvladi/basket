@@ -129,6 +129,19 @@ const clearInput = function() {
     inputPrice.value = '';
 }
 
+const editProduct = function(index) {
+    const editObj = {
+        item: inputProduct.value,
+        quantity: inputQuantity.value,
+        price: inputPrice.value
+    }
+    returnLocal = JSON.parse(localStorage.getItem('products'));
+    returnLocal.splice(index - 1, 1, editObj);
+    localStorage.setItem('products', JSON.stringify(returnLocal));
+    shoppingList.classList.remove('edit');
+    showShoppingList();
+}
+
 showShoppingList();
 showDeleteList();
 showDoneList();
@@ -150,7 +163,10 @@ shoppingList.addEventListener('click', (event) => {
         showDoneList();
     }
     if(event.target.className == 'list__editButton') {
-
+        const editTarget = event.target.closest('li'),
+              indexProduct = parseInt(editTarget.querySelector('.list__number').innerHTML);
+        editTarget.style.background = '#abdde5';
+        shoppingList.classList.add('edit');
     }
 });
 
@@ -166,10 +182,14 @@ links.addEventListener('click', (event) => {
 });
 
 headerButton.addEventListener('click', () => {
-    addToProductLocal();
-    showShoppingList();
-    showDeleteList();
-    clearInput();
+    if(shoppingList.classList.contains('edit')) {
+        editProduct();
+    }
+    // addToProductLocal();
+    // showShoppingList();
+    // showDeleteList();
+    // clearInput();
+    console.log(shoppingList.classList.contains('edit'));
 });
 
 listDelete.addEventListener('click', (event) => {
