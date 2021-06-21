@@ -73,8 +73,8 @@ const showShoppingList = function() {
             <span class="list__price">${returnLocal[i].price}</span>
             <div class="list__button">
                 <button class="list__doneButton">V</button>
-                <button class="list__editButton">E</button>
-                <button class="list__deleteButton">X</button>
+                <button class="list__editButton"></button>
+                <button class="list__deleteButton"></button>
             </div>
             `;
             total += +returnLocal[i].price;
@@ -104,7 +104,7 @@ const showDeleteList = function () {
             <span class="list__quantity">${returnLocal[i].quantity}</span>
             <span class="list__price">${returnLocal[i].price}</span>
             <div class="list__button deleteRight">
-                <button class="list__deleteButton">X</button>
+                <button class="list__deleteButton"></button>
             </div>
             `;
             total += +returnLocal[i].price;
@@ -134,7 +134,7 @@ const showDoneList = function() {
             <span class="list__quantity">${returnLocal[i].quantity}</span>
             <span class="list__price">${returnLocal[i].price}</span>
             <div class="list__button deleteRight">
-                <button class="list__deleteButton">X</button>
+                <button class="list__deleteButton"></button>
             </div>
             `;
             total += +returnLocal[i].price;

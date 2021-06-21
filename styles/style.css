@@ -265,33 +265,35 @@ body {
     height: 30px;
     width: 30px;
     margin-right: 10px;
-    color: black;
-    font-weight: 700;
-    border: 1px solid orange;
-    border-radius: 2px;
+    border: none;
+    background: transparent;
+    background-image: url(../images/edit.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: .3s;
     cursor: pointer;
 }
 
 .list__editButton:hover {
-    color: white;
-    background: orange;
+    background-image: url(../images/edit\ \(1\).png);
 }
 
 .list__deleteButton {
     height: 30px;
     width: 30px;
-    color: black;
-    font-weight: 700;
-    border: 1px solid red;
-    border-radius: 2px;
+    border: none;
     transition: .3s;
     cursor: pointer;
+    background: transparent;
+    background-image: url(../images/trash-can.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .list__deleteButton:hover {
-    color: white;
-    background: red;
+    background-image: url(../images/trash-can\ \(1\).svg);
 }
 
 .list__footer {
