@@ -315,3 +315,7 @@ body {
     justify-content: flex-end;
     font-size: 16px;
 }
+
+.edit {
+    background: #abdde5;
+}

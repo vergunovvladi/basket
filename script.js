@@ -8,8 +8,7 @@ const links = document.querySelector('.links'),
       shoppingList = document.querySelector('.list__shopping'),
       listDelete = document.querySelector('.list__delete'),
       listDone = document.querySelector('.list__done');
-
-
+      
 const addToProductLocal = function() {
     let productArr = [];
     const returnLocal = JSON.parse(localStorage.getItem('products'));
@@ -62,6 +61,7 @@ const showShoppingList = function() {
     const returnLocal = JSON.parse(localStorage.getItem('products'));
     if(returnLocal !== null) {
         shoppingList.innerHTML = '';
+        let total = 0;
         for(let i = 0; i < returnLocal.length; i++) {
             let newShoppingItem = document.createElement('li');
             shoppingList.append(newShoppingItem);
@@ -77,7 +77,15 @@ const showShoppingList = function() {
                 <button class="list__deleteButton">X</button>
             </div>
             `;
+            total += +returnLocal[i].price;
         }
+        const footer = document.createElement('li');
+        shoppingList.append(footer);
+        footer.className = 'list__footer';
+        footer.innerHTML = `
+            <span class="list__total">Total:</span>
+            <span class="list__totalPrice">${total}</span>
+        `;
     }
 }
 
@@ -85,6 +93,7 @@ const showDeleteList = function () {
     const returnLocal = JSON.parse(localStorage.getItem('deleteProducts'));
     if(returnLocal != null) {
         listDelete.innerHTML = '';
+        let total = 0;
         for(let i = 0; i < returnLocal.length; i++) {
             let newDeleteItem = document.createElement('li');
             listDelete.append(newDeleteItem);
@@ -98,7 +107,15 @@ const showDeleteList = function () {
                 <button class="list__deleteButton">X</button>
             </div>
             `;
+            total += +returnLocal[i].price;
         }
+        const footer = document.createElement('li');
+        listDelete.append(footer);
+        footer.className = 'list__footer';
+        footer.innerHTML = `
+            <span class="list__total">Total:</span>
+            <span class="list__totalPrice">${total}</span>
+        `;
     }
 }
 
@@ -106,6 +123,7 @@ const showDoneList = function() {
     const returnLocal = JSON.parse(localStorage.getItem('doneProducts'));
     if(returnLocal != null) {
         listDone.innerHTML = '';
+        let total = 0;
         for(let i = 0; i < returnLocal.length; i++) {
             const newDoneItem = document.createElement('li');
             listDone.append(newDoneItem);
@@ -119,7 +137,15 @@ const showDoneList = function() {
                 <button class="list__deleteButton">X</button>
             </div>
             `;
+            total += +returnLocal[i].price;
         }
+        const footer = document.createElement('li');
+        listDone.append(footer);
+        footer.className = 'list__footer';
+        footer.innerHTML = `
+            <span class="list__total">Total:</span>
+            <span class="list__totalPrice">${total}</span>
+        `;
     }
 }
 
@@ -143,6 +169,15 @@ const editProduct = function(index) {
     showShoppingList();
 }
 
+const findEditClass = function() {
+    const listShoppingItems = document.querySelectorAll('.list__shoppingItem');
+    for(item of listShoppingItems) {
+        if(item.classList.contains('edit')) {
+            return true;
+        }
+    }
+}
+
 showShoppingList();
 showDeleteList();
 showDoneList();
@@ -164,13 +199,16 @@ shoppingList.addEventListener('click', (event) => {
         showDoneList();
     }
     if(event.target.className == 'list__editButton') {
-        const editTarget = event.target.closest('li'),
-              indexProduct = parseInt(editTarget.querySelector('.list__number').innerHTML);
-        editTarget.style.background = '#abdde5';
-        event.target.closest('.list__shoppingItem').classList.add('edit');
-        headerButton.addEventListener('click', (event) => {
-            editProduct(indexProduct);
-        });
+        const listShoppingItem = event.target.closest('li'),
+              listShoppingItems = document.querySelectorAll('.list__shoppingItem');
+        if(!listShoppingItem.classList.contains('edit')) {
+            for(item of listShoppingItems) {
+                item.classList.remove('edit');
+            }
+            listShoppingItem.classList.add('edit');
+        } else {
+            listShoppingItem.classList.remove('edit');
+        }
     }
 });
 
@@ -186,7 +224,11 @@ links.addEventListener('click', (event) => {
 });
 
 headerButton.addEventListener('click', (event) => {
-    if(!event.target.closest('.list__shoppingItem').classList.contains('edit')) {
+    if(findEditClass()) {
+        const listShoppingItems = document.querySelector('.edit'),
+              index = parseInt(listShoppingItems.querySelector('.list__number').innerHTML);
+        editProduct(index);
+    } else {
         addToProductLocal();
         showShoppingList();
         showDeleteList();
@@ -198,7 +240,7 @@ listDelete.addEventListener('click', (event) => {
     if(event.target.className == 'list__deleteButton') {
         const returnLocal = JSON.parse(localStorage.getItem('deleteProducts'));
               index = event.target.closest('li').querySelector('.list__number').innerHTML;
-        returnLocal.splice(index - 1);
+        returnLocal.splice(index - 1, 1);
         localStorage.setItem('deleteProducts', JSON.stringify(returnLocal));
     }
     showDeleteList();
