@@ -236,9 +236,6 @@ headerButton.addEventListener('click', (event) => {
     }
 });
 
-
-
-
 listDelete.addEventListener('click', (event) => {
     if(event.target.className == 'list__deleteButton') {
         const returnLocal = JSON.parse(localStorage.getItem('deleteProducts'));
