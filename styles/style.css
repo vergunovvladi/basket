@@ -248,17 +248,18 @@ body {
     height: 30px;
     width: 30px;
     margin-right: 10px;
-    color: black;
-    font-weight: 700;
-    border: 1px solid green;
-    border-radius: 2px;
+    border: none;
+    background: transparent;
+    background-image: url(../images/check_icon_135782.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: .3s;
     cursor: pointer;
 }
 
 .list__doneButton:hover {
-    color: white;
-    background: green;
+    background-image: url(../images/check_106372.svg);
 }
 
 .list__editButton {

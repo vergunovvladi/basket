@@ -72,12 +72,12 @@ const showShoppingList = function() {
             <span class="list__quantity">${returnLocal[i].quantity}</span>
             <span class="list__price">${returnLocal[i].price}</span>
             <div class="list__button">
-                <button class="list__doneButton">V</button>
+                <button class="list__doneButton"></button>
                 <button class="list__editButton"></button>
                 <button class="list__deleteButton"></button>
             </div>
             `;
-            total += +returnLocal[i].price;
+            total += (+returnLocal[i].price)*(+returnLocal[i].quantity);
         }
         const footer = document.createElement('li');
         shoppingList.append(footer);
@@ -107,7 +107,7 @@ const showDeleteList = function () {
                 <button class="list__deleteButton"></button>
             </div>
             `;
-            total += +returnLocal[i].price;
+            total += (+returnLocal[i].price)*(+returnLocal[i].quantity);
         }
         const footer = document.createElement('li');
         listDelete.append(footer);
@@ -137,7 +137,7 @@ const showDoneList = function() {
                 <button class="list__deleteButton"></button>
             </div>
             `;
-            total += +returnLocal[i].price;
+            total += (+returnLocal[i].price)*(+returnLocal[i].quantity);
         }
         const footer = document.createElement('li');
         listDone.append(footer);
