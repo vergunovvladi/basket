@@ -250,7 +250,7 @@ listDone.addEventListener('click', (event) => {
     if(event.target.className == 'list__deleteButton') {
         const returnLocal = JSON.parse(localStorage.getItem('doneProducts'));
               index = event.target.closest('li').querySelector('.list__number').innerHTML;
-        returnLocal.splice(index - 1);
+        returnLocal.splice(index - 1, 1);
         localStorage.setItem('doneProducts', JSON.stringify(returnLocal));
     }
     showDoneList();
