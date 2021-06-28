@@ -194,7 +194,7 @@ shoppingList.addEventListener('click', (event) => {
         const doneTarget = event.target.closest('li'),
               doneItem = doneTarget.querySelector('.list__number'),
               indexDone = parseInt(doneItem.innerHTML);
-        addToDoneLocal(indexDone - 1);
+        addToDoneLocal(indexDone - 1, 1);
         showShoppingList();
         showDoneList();
     }
